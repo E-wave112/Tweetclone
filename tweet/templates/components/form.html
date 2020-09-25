@@ -1,0 +1,10 @@
+
+{% load static %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-secondary">Post</button>
+
+</form>
+{% endblock %}
