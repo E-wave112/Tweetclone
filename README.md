@@ -2,7 +2,7 @@ A django based app that explores all the base functionalities of the twitter app
 
 
 TECH STACK
-Frontend: Bootstrap,ReacJS,JavaScript
+Frontend: Bootstrap,ReactJS,JavaScript
 Backend:Django
 Infastructure:Docker
-Database:posgreSQL
+Database:postgreSQL
