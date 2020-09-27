@@ -24,10 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tweetme2.settings")
 DEBUG = True
 MAX_TWEET_LENGTH = 240
 
-ALLOWED_HOSTS = config('ALLOWED_HOST')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -87,12 +88,12 @@ WSGI_APPLICATION = 'tweetme2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-        'PORT': config('PORT'),
+        'ENGINE':os.environ.get("ENGINE", "django.db.backends.sqlite3"),
+        'NAME':os.environ.get("NAME",os.path.join(BASE_DIR, "db.sqlite3")),
+        'USER':os.environ.get("USER", "e-wave"),
+        'PASSWORD':os.environ.get("PASSWORD", "password"),
+        'HOST':os.environ.get("HOST", "localhost"),
+        'PORT':config('PORT')
     }
 }
 

@@ -1,0 +1,30 @@
+version: "3.3"
+   
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/tweet
+    ports:
+      - "8000:8000"  
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=Emmy
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=twit
+
+volumes:
+  postgres_data:
+  
+    
+
