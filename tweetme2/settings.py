@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'tweetme2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':os.environ.get("ENGINE", "django.db.backends.sqlite3"),
-        'NAME':os.environ.get("NAME",os.path.join(BASE_DIR, "db.sqlite3")),
-        'USER':os.environ.get("USER", "e-wave"),
-        'PASSWORD':os.environ.get("PASSWORD", "password"),
-        'HOST':os.environ.get("HOST", "localhost"),
-        'PORT':config('PORT')
+        'ENGINE':config("ENGINE"),
+        'NAME':config("NAME"),
+        'USER':config("USER"),
+        'PASSWORD':config("PASSWORD"),
+        'HOST':config("HOST"),
+        'PORT':''
     }
 }
 

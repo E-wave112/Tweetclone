@@ -40,3 +40,5 @@ class Tweet(models.Model):
         }
 
 
+
+

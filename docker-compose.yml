@@ -16,15 +16,10 @@ services:
     image: postgres:12.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    ports:
-      - "5432:5432"
     environment:
-      - POSTGRES_USER=Emmy
-      - POSTGRES_PASSWORD=hello_django
-      - POSTGRES_DB=twit
+      - POSTGRES_USER=emmyboy1
+      - POSTGRES_PASSWORD=devnotes
+      - POSTGRES_DB=twittss
 
 volumes:
   postgres_data:
-  
-    
-
